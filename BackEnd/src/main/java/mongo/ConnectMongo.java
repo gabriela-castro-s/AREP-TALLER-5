@@ -14,7 +14,7 @@ import java.util.function.Consumer;
 public class ConnectMongo {
     private String url = "mongodb+srv://dbUser:dbPassword@cluster1.d7hjigs.mongodb.net/?retryWrites=true&w=majority";
     //private String url = "localhost";
-    private int port = 27017; 
+    private int port = 27017;
     private MongoClient mongo = null;
     private MongoDatabase prueba = null;
     private MongoCollection<Document> collection;

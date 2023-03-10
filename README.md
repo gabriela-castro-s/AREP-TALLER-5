@@ -9,7 +9,7 @@ En este caso este se almacena en un servidor EC2 de AWS, para ser desplegado des
 
 ## Arquitectura
 
-![](img/Captura de pantalla 2023-03-09 231232.png)
+![](img/imagen.png)
 
 Como podemos ver en la imagen se puede evidenciar fácilmente como se está estructurando, en este caso si no hubiera 
 realizado el **APP-LB-RoundRobin** por medio de un **HttpServer** se podría ver de mejor manera la arquitectura 
