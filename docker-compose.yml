@@ -1,0 +1,60 @@
+version: '3'
+
+services:
+  backend1:
+    environment:
+      - PORT=8062
+    build:
+      context: ./Backend
+      dockerfile: Dockerfile
+    container_name: back1
+    links:
+      - db
+
+  backend2:
+    environment:
+      - PORT=8063
+    build:
+      context: ./Backend
+      dockerfile: Dockerfile
+    container_name: back2
+    links:
+      - db
+
+  backend3:
+    environment:
+      - PORT=8064
+    build:
+      context: ./Backend
+      dockerfile: Dockerfile
+    container_name: back3
+    links:
+      - db
+
+  balance:
+    environment:
+      - PORT=6001
+    build:
+      context: Balanceador1
+      dockerfile: Dockerfile
+    container_name: balance
+    ports:
+      - "35003:6001"
+    links:
+      - backend1
+      - backend2
+      - backend3
+
+  db:
+    image: mongo:3.6.1
+    container_name: db
+    volumes:
+      - mongodb:/data/db
+      - mongodb_config:/data/configdb
+    command: mongod
+volumes:
+  mongodb:
+  mongodb_config:
+
+#docker-compose up -d
+
